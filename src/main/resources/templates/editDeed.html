@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>EditDeed</title>
+    </head>
+
+    <body style="background-color:#2b292b;">
+        <center>
+            <form th:method="PATCH" th:action="@{/toDoList/{id}(id=${deed.getId()})}" th:object="${deed}">
+                <label style="color:#bab7ff;" for="name">Enter deed: </label>
+                <input type="text" th:field="*{name}" id="name"/>
+                <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
+                <input type="submit" value="Update"/>
+            </form>
+        </center>
+    </body>
+</html>

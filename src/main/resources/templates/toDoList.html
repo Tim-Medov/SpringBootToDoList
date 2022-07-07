@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>ToDoList</title>
+    </head>
+
+    <body style="background-color:#2b292b;">
+        <center>
+            <h2 style="color:white;">ToDoList</h2>
+        </center>
+        <center>
+            <div th:each="deed : ${toDoList}">
+                <a style="color:#bab7ff;" th:href="@{/toDoList/{id}(id=${deed.getId()})}"
+                   th:text="${deed.getName()}">deed</a>
+            </div>
+            <br/>
+            <a href="/toDoList/addDeed">
+                <input type="submit" value="Add"/>
+            </a>
+            <br/>
+            <a href="/toDoList/deleteAllDeeds">
+                <input type="submit" value="Delete All"/>
+            </a>
+        </center>
+    </body>
+</html>
